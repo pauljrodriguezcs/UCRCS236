@@ -484,6 +484,9 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
 	 case 's':
          case 'c':
             return E_NOLENGTH;
+        case 'm':                // milestone 2
+            *type = MBR;
+            break;
          default:
             return E_INVFORMATSTRING;
       }
@@ -510,6 +513,8 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             if(*len < 1 || *len > MAXSTRINGLEN)
                return E_INVSTRLEN;
             break;
+        case 'm':                       // milestone 2
+              return E_INVFORMATSTRING;
          default:
             return E_INVFORMATSTRING;
       }

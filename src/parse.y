@@ -73,7 +73,7 @@ QL_Manager *pQlm;          // QL component manager
     CompOp cval;
     float rval;
     char *sval;
-    struct mbr mval;
+    struct MBR mval;
     NODE *n;
 }
 
@@ -119,6 +119,8 @@ QL_Manager *pQlm;          // QL component manager
 %token   <sval>   T_STRING
       T_QSTRING
       T_SHELL_CMD
+
+%token   <mval>   T_MBR         // Milestone 2
 
 %type   <cval>   op
 
@@ -509,6 +511,10 @@ value
    {
       $$ = value_node(FLOAT, (void *)& $1);
    }
+   | T_MBR                             // Milestone 2
+   {
+      $$ = value_node(MBR, (void *)& $1);
+   }
    ;
 
 opt_relname
@@ -624,7 +630,8 @@ ostream &operator<<(ostream &s, const AttrInfo &ai)
       s << " attrName=" << ai.attrName
       << " attrType=" << 
       (ai.attrType == INT ? "INT" :
-       ai.attrType == FLOAT ? "FLOAT" : "STRING")
+       ai.attrType == FLOAT ? "FLOAT" :
+       ai.attrType == STRING ? "STRING" : "MBR")      // Milestone 2
       << " attrLength=" << ai.attrLength;
 }
 
@@ -659,6 +666,10 @@ ostream &operator<<(ostream &s, const Value &v)
       case STRING:
          s << " (char *)data=" << (char *)v.data;
          break;
+      case MBR:                     // Milestone 2
+         s << " (MBR *)data=" << (MBR *)v.data;
+         break;
+         
    }
    return s;
 }
@@ -702,6 +713,9 @@ ostream &operator<<(ostream &s, const AttrType &at)
          break;
       case STRING:
          s << "STRING";
+         break;
+      case MBR:                     // Milestone 2
+         s << "MBR";
          break;
    }
    return s;
