@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.27.1" />
+
+  <title>Project Milestone 2: Adding a Spatial Datatype &middot; CS236-UCR</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://payasr.github.io/redbase-spatial/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/info"><i class='fa fa-list fa-fw'></i>Course Description</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/overview"><i class='fa fa-list fa-fw'></i>Project Overview</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/architect-dbms"><i class='fa fa-list fa-fw'></i>Architecture of an RDBMS</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/spatial-data"><i class='fa fa-list fa-fw'></i>Spatial data management</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/redbase-intro"><i class='fa fa-list fa-fw'></i>Introduction to redbase-spatial</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone1"><i class='fa fa-list fa-fw'></i>Milestone 1</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone2"><i class='fa fa-list fa-fw'></i>Milestone 2</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone3"><i class='fa fa-list fa-fw'></i>Milestone 3</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Project Milestone 2: Adding a Spatial Datatype</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <p>Okay, code time! In this assignment we shall modify redbase to accept a simple spatial datatype - a rectangle. To get an idea of what spatial data is and where is it used, please read through the <a href="../spatial-data">tutorial</a> if you haven&rsquo;t already.</p>
+
+<p>At a high level, the following steps take place after the <code>redbase</code> executable is run:</p>
+
+<ol>
+<li><code>redbase.cc</code> shows a prompt and takes in a string as an input from the user.</li>
+<li>The string goes through a <a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexical analysis</a> (also called &lsquo;lexing&rsquo; or &lsquo;tokenization&rsquo;) phase that scans and generates a sequence of &lsquo;tokens&rsquo;. The types of tokens are defined in the parser specification in <code>parse.y</code>. Note that these files do not contain the C code for lexing and parsing. Since several software systems use such lexing and parsing stages, tools like GNU Flex and Bison are used to generate the actual code from the language specifications present in the <code>scan.l</code> and <code>parse.y</code> files. You can find the actual code in <code>scan.cpp</code> and <code>parse.cpp</code> files, but do <strong>not</strong> modify these files. They are automatically generated by Flex and Bison, and will be overwritten on each build.</li>
+<li>The sequence of tokens generated in the lexing stage is input into a <a href="https://en.wikipedia.org/wiki/Parsing#Computer_languages">parser</a>, that generates a &lsquo;query tree&rsquo;. A query tree is composed of different types of &lsquo;nodes&rsquo; defined in the <code>nodes.cc</code> file. Each type of SQL statement is mapped to a distinct type of node in the query tree.</li>
+<li>The query tree is then traversed and each node is then &lsquo;interpreted&rsquo; by the <code>interp</code> function in <code>interp.cc</code> and relevant methods of the Storage Management/Indexing/Record Management layers are called using objects of their respective Manager classes.</li>
+</ol>
+
+<p><strong>Task Assigned</strong></p>
+
+<p>You need to add a simple spatial datatype &lsquo;MBR&rsquo;(a Minimum Bounding Rectangle) to the system and modify the RQL to accept the new type. An MBR should be a set of 4 integer values representing <code>[top_left_x, top_left_y, bottom_right_x, bottom_right_y]</code>.</p>
+
+<p>You can start with adding a datatype to <code>redbase.h</code>, then modify the lexer and parser specifications to recognise this new datatype by adding a new type of token (expected lines to change in <code>scan.l</code> = ~2, in <code>parse.y</code> = ~10). You will then need to work your way downwards through the system and make sure that data of the new type can be inserted and retrieved using the RQL  <code>INSERT</code> and <code>SELECT</code> statements. A set of sample queries is shown below:</p>
+
+<pre><code>CREATE TABLE DATA (id i, location m); // Note the new datatype MBR denoted by 'm'
+INSERT INTO DATA VALUES (1, [1, 2, 3, 4]); // The 4 input values grouped in [] represent a single MBR
+SELECT * FROM DATA; 
+</code></pre>
+
+<p><em>You can find additional help in in the Parser.HowTo file given in the source directory.</em> However, please note that the given list of files is not exhaustive, and there may be additional files you may have to modify to make the system work. Please use piazza for any questions/discussions.</p>
+
+<p><strong>Deliverables</strong></p>
+
+<p>Please submit a snapshot of your code with a README file containing the instructions to run your code, packaged into a single .tar.gz file with the name <code>firstname_lastname.tar.gz</code>. <strong>(30 points)</strong></p>
+
+<p><strong>Due date</strong>: 25<sup>th</sup> October, 11:59 pm</p>
+
+<p><strong>How to submit</strong>: The submissions will be through iLearn.<br />
+Please upload the report on iLearn &gt; CS 236 &gt; Assignments &gt; Project milestone 2.</p>
+
+
+  
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://payasr.github.io/redbase-spatial/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

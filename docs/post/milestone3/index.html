@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.27.1" />
+
+  <title>Project Milestone 3: Implementing the R-Tree &middot; CS236-UCR</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://payasr.github.io/redbase-spatial/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/info"><i class='fa fa-list fa-fw'></i>Course Description</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/overview"><i class='fa fa-list fa-fw'></i>Project Overview</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/architect-dbms"><i class='fa fa-list fa-fw'></i>Architecture of an RDBMS</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/spatial-data"><i class='fa fa-list fa-fw'></i>Spatial data management</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/redbase-intro"><i class='fa fa-list fa-fw'></i>Introduction to redbase-spatial</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone1"><i class='fa fa-list fa-fw'></i>Milestone 1</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone2"><i class='fa fa-list fa-fw'></i>Milestone 2</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone3"><i class='fa fa-list fa-fw'></i>Milestone 3</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Project Milestone 3: Implementing the R-Tree</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <p>Now that your system has a spatial datatype, the next step is making the system work with spatial indexes. In this assignment we shall implement an <a href="http://www.cs.ucr.edu/~ravi/CS236Papers/R-tree.pdf">R-Tree index</a> in Redbase and use it to answer spatial range queries.</p>
+
+<p>To start with, you must become familiar with the structure of a database in Redbase. When <code>dbcreate test</code> is run, a folder named <code>test</code> is created, and contains two files, <code>attrcat</code> and <code>relcat</code>. These files constitute the &lsquo;catalog&rsquo; of the database. The <code>relcat</code> file records the information about the relations in <code>test</code>, and <code>attrcat</code> consists of information about the attributes of different relations in <code>test</code>. When a <code>CREATE TABLE data</code> command is run inside a database, a file <code>data</code> is created in the test folder, containing information stored in that relation. For all subsequent queries issued, the Storage Management (SM) layer uses the catalog and data files to implement the DDL and DML statements. The <code>attrcat</code>, <code>relcat</code> and relation data files are paged and handled by the <code>PF</code> layer of redbase using appropriate functions. No raw data should be written to or read from these files.</p>
+
+<p>At a high level, the following steps take place when the <code>CREATE INDEX</code> query is issued:</p>
+
+<ol>
+<li>Similar to the <code>SELECT</code> and <code>INSERT</code> statements, the query string goes through the lexing and parsing stages, checks for syntax correctness and a query tree is generated.</li>
+<li>The <code>interp.cc</code> interprets nodes of the query tree, calling the System Management layer&rsquo;s <code>SM_Manager::CreateIndex()</code> to create a new index on the input attribute.</li>
+<li><code>SM_Manager::CreateIndex()</code> looks for the information about the relation and the attribute in <code>relcat</code> and <code>attrcat</code>, and calls the <code>IX_Manager::CreateIndex()</code> to create an index on the specified attribute. An index of a relation is a <strong>new file</strong> that contains an R-Tree, which holds a subset of information of the original relation, and contains pointers to the original relation data file for faster queries.</li>
+<li>Currently, the methods in <code>IX_Manager</code>, <code>IX_IndexScan</code> and <code>IX_IndexHandle</code> are empty. Your task is to fill the methods of these classes with the implementation of an R-Tree.</li>
+</ol>
+
+<p><strong>Tasks Assigned</strong>
+There are two tasks you need to finish to complete this assignment: implement the R-tree, and define the <code>INTERSECTS</code> operation that can be used in conjunction with the <code>SELECT</code> or <code>DELETE</code> statements. Here are a few sample queries to test your implementation:</p>
+
+<pre><code>CREATE TABLE DATA (id i, location m); // Note the new datatype MBR denoted by 'm'
+INSERT INTO DATA VALUES (1, [1, 2, 3, 4]); // The 4 input values grouped in [] represent a single MBR
+
+CREATE INDEX DATA (location);
+SELECT * FROM DATA WHERE INTERSECTS (location, [2, 4, 3, 5]); 
+DELETE FROM DATA WHERE INTERSECTS (location, [2, 4, 3, 5]);
+</code></pre>
+
+<p>You may assume that the system supports indexing on only a single datatype, i.e. an index may be created only on an attribute of MBR type. Please use Piazza for any questions/discussions.</p>
+
+<p><strong>Deliverables</strong></p>
+
+<p>Please submit a snapshot of your code with a README file containing the instructions to run your code, packaged into a single .tar.gz file with the name firstname_lastname.tar.gz. <strong>(50 points)</strong></p>
+
+<p><strong>Due date:</strong> 24th November, 11:59 pm</p>
+
+<p><strong>How to submit:</strong> The submissions will be through iLearn.
+Please upload the report on iLearn &gt; CS 236 &gt; Assignments &gt; Project milestone 3.</p>
+
+
+  
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://payasr.github.io/redbase-spatial/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

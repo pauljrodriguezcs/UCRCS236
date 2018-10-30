@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/milestone3/</loc>
+    <lastmod>2017-10-20T11:00:42-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/milestone2/</loc>
+    <lastmod>2017-10-13T18:22:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/info/</loc>
+    <lastmod>2017-10-04T10:16:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/</loc>
+    <lastmod>2017-10-03T18:33:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/redbase-intro/</loc>
+    <lastmod>2017-10-03T18:33:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/milestone1/</loc>
+    <lastmod>2017-10-03T18:33:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/overview/</loc>
+    <lastmod>2017-10-03T18:33:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/spatial-data/</loc>
+    <lastmod>2017-10-03T18:33:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/architect-dbms/</loc>
+    <lastmod>2017-10-03T11:45:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/</loc>
+    <lastmod>2017-10-20T11:00:42-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/post/</loc>
+    <lastmod>2017-10-20T11:00:42-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://payasr.github.io/redbase-spatial/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

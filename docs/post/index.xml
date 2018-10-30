@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on CS236-UCR</title>
+    <link>https://payasr.github.io/redbase-spatial/post/</link>
+    <description>Recent content in Posts on CS236-UCR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 20 Oct 2017 11:00:42 -0700</lastBuildDate>
+    
+	<atom:link href="https://payasr.github.io/redbase-spatial/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Milestone 3: Implementing the R-Tree</title>
+      <link>https://payasr.github.io/redbase-spatial/post/milestone3/</link>
+      <pubDate>Fri, 20 Oct 2017 11:00:42 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/milestone3/</guid>
+      <description>Now that your system has a spatial datatype, the next step is making the system work with spatial indexes. In this assignment we shall implement an R-Tree index in Redbase and use it to answer spatial range queries.
+To start with, you must become familiar with the structure of a database in Redbase. When dbcreate test is run, a folder named test is created, and contains two files, attrcat and relcat.</description>
+    </item>
+    
+    <item>
+      <title>Project Milestone 2: Adding a Spatial Datatype</title>
+      <link>https://payasr.github.io/redbase-spatial/post/milestone2/</link>
+      <pubDate>Fri, 13 Oct 2017 18:22:46 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/milestone2/</guid>
+      <description>Okay, code time! In this assignment we shall modify redbase to accept a simple spatial datatype - a rectangle. To get an idea of what spatial data is and where is it used, please read through the tutorial if you haven&amp;rsquo;t already.
+At a high level, the following steps take place after the redbase executable is run:
+ redbase.cc shows a prompt and takes in a string as an input from the user.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Redbase-spatial</title>
+      <link>https://payasr.github.io/redbase-spatial/post/redbase-intro/</link>
+      <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/redbase-intro/</guid>
+      <description>+----------------------------------------+ | Query Language | +----------------------------------------+ | System Management | +-------------------+--------------------+ | Indexes | Record Management | +-------------------+--------------------+ | Paged File | +----------------------------------------+  Redbase is a stripped down relational DBMS, that implements the Stanford Redbase interfaces. It is assumed that the queries are input directly to the database command line and no separate clients are available. The system is organized into five major components:
+ Paged File - The PF component provides facilities for higher-level client components to perform file I/O in terms of pages.</description>
+    </item>
+    
+    <item>
+      <title>Project Milestone 1: Getting started</title>
+      <link>https://payasr.github.io/redbase-spatial/post/milestone1/</link>
+      <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/milestone1/</guid>
+      <description>The first assignment is simple. You need to download Redbase, build it and run simple RQL queries. You will need a linux-like environment to be able to complete the following steps. Windows/Mac users can download VirtualBox and run any linux distribution on a VM. We recommend using either Fedora or Ubuntu. Windows 10 users can also have a look at the WSL (Windows Subsystem for Linux) to compile the given code (Note that you will require a Windows Insider Build installed on your system).</description>
+    </item>
+    
+    <item>
+      <title>Project Overview</title>
+      <link>https://payasr.github.io/redbase-spatial/post/overview/</link>
+      <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/overview/</guid>
+      <description>The goal of the project is to implement an R-tree index in Redbase-spatial, an instructional RDBMS written in C++. Since this requires substantial engineering effort, we shall be covering it in phases (Please note that the dates are tentative):
+ Milestone 1: Getting familiar with redbase architecture (Due: 11th October) Milestone 2: Adding a spatial datatype (Due: 25rd October) Milestone 3: Implementing R-tree (Due: 24th November) Milestone 4: Testing and benchmarking (Due: 27th November)  Students are expected to have a background in C or C++ programming.</description>
+    </item>
+    
+    <item>
+      <title>Spatial Data Management: A tutorial</title>
+      <link>https://payasr.github.io/redbase-spatial/post/spatial-data/</link>
+      <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/spatial-data/</guid>
+      <description>Spatial data is information about the locations and shapes of geographic features and the relationships between them, usually stored as coordinates and topology (ESRI, 2017). In other words, it is data that is connected to a ‘location’ on earth, usually represented as latitude and longitude coordinates. Such data is generated by sensors, GPS devices, smartphones and is at the center of GIS systems. Since spatial data is multidimensional (the queries involve both latitude and longitude, in some cases even time), managing it requires special techniques and indexes, some of which will be covered in the papers we read in the course.</description>
+    </item>
+    
+    <item>
+      <title>Architecture of an RDBMS</title>
+      <link>https://payasr.github.io/redbase-spatial/post/architect-dbms/</link>
+      <pubDate>Tue, 03 Oct 2017 11:45:47 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/architect-dbms/</guid>
+      <description>Life of an SQL query This section is a slightly modified excerpt from Section 1, Architecture of a Database System
+  At heart, a typical RDBMS has five main components, as illustrated in Figure 1.1. Consider a simple but typical database interaction at an airport, in which a gate agent clicks on a form to request the passenger list for a flight. This button click results in a single-query transaction that works roughly as follows:</description>
+    </item>
+    
+  </channel>
+</rss>
