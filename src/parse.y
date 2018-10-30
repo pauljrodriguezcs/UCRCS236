@@ -667,7 +667,7 @@ ostream &operator<<(ostream &s, const Value &v)
          s << " (char *)data=" << (char *)v.data;
          break;
       case MBR:                     // Milestone 2
-         s << " (MBR *)data=" << *(MBR *)v.data;
+         s << " (MBR *)data=" << *(struct MBR *)v.data;
          break;
          
    }
