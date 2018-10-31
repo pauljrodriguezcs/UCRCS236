@@ -54,7 +54,7 @@ typedef int RC;
 // and PF layers
 const int ALL_PAGES = -1;
 
-struct MBR 
+struct mbr_data 
 {
     int top_left_x;
     int top_left_y;

@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED
-# define YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED
+#ifndef YY_YY_HOME_PAUL_REDBASE_SPATIAL_SRC_PARSE_HPP_INCLUDED
+# define YY_YY_HOME_PAUL_REDBASE_SPATIAL_SRC_PARSE_HPP_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -82,7 +82,8 @@ extern int yydebug;
     T_REAL = 292,
     T_STRING = 293,
     T_QSTRING = 294,
-    T_SHELL_CMD = 295
+    T_SHELL_CMD = 295,
+    T_MBR = 296
   };
 #endif
 
@@ -97,9 +98,10 @@ union YYSTYPE
     CompOp cval;
     float rval;
     char *sval;
+    struct mbr_data mval;
     NODE *n;
 
-#line 103 "/home/payas/redbase/src/parse.hpp" /* yacc.c:1909  */
+#line 105 "/home/paul/redbase-spatial/src/parse.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -112,4 +114,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED  */
+#endif /* !YY_YY_HOME_PAUL_REDBASE_SPATIAL_SRC_PARSE_HPP_INCLUDED  */

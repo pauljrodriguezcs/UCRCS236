@@ -446,6 +446,9 @@ static void mk_value(NODE *node, Value &value)
       case STRING:
          value.data = (void *)node->u.VALUE.sval;
          break;
+      case MBR:
+         value.data = (void *)&node->u.VALUE.mval;
+         break;
    }
 }
 
@@ -486,6 +489,7 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             return E_NOLENGTH;
         case 'm':                // milestone 2
             *type = MBR;
+            *len = sizeof(struct mbr_data);
             break;
          default:
             return E_INVFORMATSTRING;
@@ -723,6 +727,10 @@ static void print_value(NODE *n)
       case STRING:
          printf(" \"%s\"", n -> u.VALUE.sval);
          break;
+      case MBR:
+         printf(" [%d,%d,%d,%d]", n -> u.VALUE.mval);
+         break;
+         // FIx 
    }
 }
 

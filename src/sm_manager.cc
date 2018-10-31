@@ -60,6 +60,10 @@ bool recInsert_string(char *location, string value, int length){
   return true;
 }
 
+bool recInsert_MBR(char *location, string value, int length){
+
+}
+
 /*
  * Constructor and destructor for SM_Manager
  */
@@ -138,7 +142,7 @@ bool SM_Manager::isValidAttrType(AttrInfo attribute){
     return true;
   if(type == STRING && (length > 0) && length < MAXSTRINGLEN)
     return true;
-  if(type == MBR && (length > 0) && length < MAXSTRINGLEN)      // milestone 2
+  if(type == MBR && length == sizeof(struct mbr_data))      // milestone 2
     return true;
 
   return false;
@@ -611,8 +615,10 @@ RC SM_Manager::PrepareAttr(RelCatEntry *rEntry, Attr* attributes){
     }
     else if(aEntry->attrType == FLOAT)
       attributes[slot].recInsert = &recInsert_float;
-    else
+    else if (aEntry->attrType == STRING)
       attributes[slot].recInsert = &recInsert_string;
+    else // Milestone 2
+      attributes[slot].recInsert = &recInsert_MBR;
   }
   if((rc = attrIt.CloseIterator()))
     return (rc);

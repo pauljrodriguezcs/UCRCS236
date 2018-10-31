@@ -53,6 +53,10 @@ bool recInsert_string(char *location, string value, int length){
   return true;
 }
 
+bool recInsert_MBR(char *location, string value, int length){
+  
+}
+
 /*
  * Constructor and destructor for SM_Manager
  */
