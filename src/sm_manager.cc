@@ -61,7 +61,15 @@ bool recInsert_string(char *location, string value, int length){
 }
 
 bool recInsert_MBR(char *location, string value, int length){
+  int num;
+  istringstream ss(value);
+  ss >> num;
+  if(ss.fail()){
+    return false;
+  }
 
+  memcpy(location, (char*)&num, length);
+  return true;
 }
 
 /*
@@ -142,7 +150,7 @@ bool SM_Manager::isValidAttrType(AttrInfo attribute){
     return true;
   if(type == STRING && (length > 0) && length < MAXSTRINGLEN)
     return true;
-  if(type == MBR && length == sizeof(struct mbr_data))      // milestone 2
+  if(type == MBR && length == sizeof(mbr_data))      // milestone 2
     return true;
 
   return false;
@@ -781,6 +789,9 @@ RC SM_Manager::OpenAndLoadFile(RM_FileHandle &relFH, const char *fileName, Attr*
           attrValue = ConvertStrToFloat(record + offset);
         else if(attributes[i].type == INT)
           attrValue = (float) *((int*) (record + offset));
+        else if(attributes[i].type == MBR){
+          attrValue = (float) *((int*) (record + offset));
+        }
         else{
           attrValue = *((float*) (record + offset));
         }
@@ -1294,6 +1305,8 @@ RC SM_Manager::CalcStats(const char *relName){
       if(attributes[i].type == STRING)
         attrValue = ConvertStrToFloat(recData + offset);
       else if(attributes[i].type == INT)
+        attrValue = (float) *((int*) (recData + offset));
+      else if(attributes[i].type == MBR)
         attrValue = (float) *((int*) (recData + offset));
       else
         attrValue = *((float*)(recData + offset));

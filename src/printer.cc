@@ -208,7 +208,7 @@ void Printer::Print(ostream &c, const void * const data[])
                 Spaces(strlen(psHeader[i]), strlen(strSpace));
         }
         if (attributes[i].attrType == MBR) {
-            memcpy (&m, data[i], sizeof(struct mbr_data));
+            memcpy (&m, data[i], sizeof(mbr_data));
             sprintf(strSpace, "[%d,%d,%d,%d]",m.top_left_x, m.top_left_y, m.bottom_right_x, m.bottom_right_y);
             c << strSpace;
             if (strlen(psHeader[i]) < 12)
@@ -234,7 +234,7 @@ void Printer::Print(ostream &c, const char * const data)
     char str[MAXPRINTSTRING], strSpace[50];
     int i, a;
     float b;
-    struct mbr_data m;
+    mbr_data m;
 
     if (data == NULL)
         return;
@@ -282,10 +282,10 @@ void Printer::Print(ostream &c, const char * const data)
                 Spaces(strlen(psHeader[i]), strlen(strSpace));
         }
         if (attributes[i].attrType == MBR) {
-            memcpy (&m, (data+attributes[i].offset), sizeof(struct mbr_data));
+            memcpy (&m, data, sizeof(mbr_data));
             sprintf(strSpace, "[%d,%d,%d,%d]",m.top_left_x, m.top_left_y, m.bottom_right_x, m.bottom_right_y);
             c << strSpace;
-            if (strlen(psHeader[i]) < 16)
+            if (strlen(psHeader[i]) < 12)
                 Spaces(12, strlen(strSpace));
             else
                 Spaces(strlen(psHeader[i]), strlen(strSpace));

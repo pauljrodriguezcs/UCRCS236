@@ -489,7 +489,7 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             return E_NOLENGTH;
         case 'm':                // milestone 2
             *type = MBR;
-            *len = sizeof(struct mbr_data);
+            *len = sizeof(mbr_data);
             break;
          default:
             return E_INVFORMATSTRING;
@@ -518,7 +518,11 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
                return E_INVSTRLEN;
             break;
         case 'm':                       // milestone 2
-              return E_INVFORMATSTRING;
+            *type = MBR;
+            if(*len != sizeof(MBR)){
+                  return E_INVINTSIZE;
+            }
+            break;
          default:
             return E_INVFORMATSTRING;
       }
@@ -728,9 +732,11 @@ static void print_value(NODE *n)
          printf(" \"%s\"", n -> u.VALUE.sval);
          break;
       case MBR:
-         printf(" [%d,%d,%d,%d]", n -> u.VALUE.mval);
+         printf(" [%d,%d,%d,%d]", n -> u.VALUE.mval.top_left_x,
+                                  n -> u.VALUE.mval.top_left_y,
+                                  n -> u.VALUE.mval.bottom_right_x,
+                                  n -> u.VALUE.mval.bottom_right_y);
          break;
-         // FIx 
    }
 }
 

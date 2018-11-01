@@ -73,7 +73,7 @@ QL_Manager *pQlm;          // QL component manager
     CompOp cval;
     float rval;
     char *sval;
-    struct mbr_data mval;
+mbr_data mval;
     NODE *n;
 }
 
@@ -667,10 +667,7 @@ ostream &operator<<(ostream &s, const Value &v)
          s << " (char *)data=" << (char *)v.data;
          break;
       case MBR:                     // Milestone 2
-         s << " *(mbr_data *)data=" << ((struct mbr_data *)v.data)->top_left_x 
-                                    << ((struct mbr_data *)v.data)->top_left_y 
-                                    << ((struct mbr_data *)v.data)->bottom_right_x 
-                                    << ((struct mbr_data *)v.data)->bottom_right_y ;
+         s << " *(int *)data=" << *(int *)v.data;
          break;
          
    }
