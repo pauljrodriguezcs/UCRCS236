@@ -487,6 +487,7 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
 	 case 's':
          case 'c':
             return E_NOLENGTH;
+            break;
         case 'm':                // milestone 2
             *type = MBR;
             *len = sizeof(mbr_data);

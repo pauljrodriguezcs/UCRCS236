@@ -2203,8 +2203,8 @@ ostream &operator<<(ostream &s, const AttrInfo &ai)
       s << " attrName=" << ai.attrName
       << " attrType=" << 
       (ai.attrType == INT ? "INT" :
-       ai.attrType == FLOAT ? "FLOAT" :
-       ai.attrType == STRING ? "STRING" : "MBR")      // Milestone 2
+       ai.attrType == MBR ? "MBR" :
+       ai.attrType == FLOAT ? "FLOAT" : "STRING")      // Milestone 2
       << " attrLength=" << ai.attrLength;
 }
 
