@@ -173,8 +173,8 @@ RC SM_Manager::CreateTable(const char *relName,
     cout << "   attributes[" << i << "].attrName=" << attributes[i].attrName
         << "   attrType="
         << (attributes[i].attrType == INT ? "INT" :
-            attributes[i].attrType == FLOAT ? "FLOAT" :
-            attributes[i].attrType == STRING ? "STRING" : "MBR")    // milestone 2
+            attributes[i].attrType == MBR ? "MBR" :
+            attributes[i].attrType == FLOAT ? "FLOAT" : "STRING")    // milestone 2
         << "   attrLength=" << attributes[i].attrLength << "\n";
 
   RC rc = 0;
@@ -623,10 +623,10 @@ RC SM_Manager::PrepareAttr(RelCatEntry *rEntry, Attr* attributes){
     }
     else if(aEntry->attrType == FLOAT)
       attributes[slot].recInsert = &recInsert_float;
-    else if (aEntry->attrType == STRING)
-      attributes[slot].recInsert = &recInsert_string;
-    else // Milestone 2
+    else if (aEntry->attrType == MBR)
       attributes[slot].recInsert = &recInsert_MBR;
+    else
+      attributes[slot].recInsert = &recInsert_string;
   }
   if((rc = attrIt.CloseIterator()))
     return (rc);
