@@ -73,8 +73,8 @@ QL_Manager *pQlm;          // QL component manager
     CompOp cval;
     float rval;
     char *sval;
-mbr_data mval;
     NODE *n;
+    mbr_data mval;
 }
 
 %token     
@@ -114,13 +114,13 @@ mbr_data mval;
 
 %token   <ival>   T_INT
 
+%token   <mval>   T_MBR         // Milestone 2
+
 %token   <rval>   T_REAL
 
 %token   <sval>   T_STRING
       T_QSTRING
       T_SHELL_CMD
-
-%token   <mval>   T_MBR         // Milestone 2
 
 %type   <cval>   op
 

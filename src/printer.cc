@@ -163,7 +163,7 @@ void Printer::Print(ostream &c, const void * const data[])
     char str[MAXPRINTSTRING], strSpace[50];
     int i, a;
     float b;
-    struct mbr_data m;
+    mbr_data m;
 
     // Increment the number of tuples printed
     iCount++;

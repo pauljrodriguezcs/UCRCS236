@@ -98,7 +98,7 @@ union YYSTYPE
     CompOp cval;
     float rval;
     char *sval;
-mbr_data mval;
+    mbr_data mval;
     NODE *n;
 
 #line 105 "/home/paul/redbase-spatial/src/parse.hpp" /* yacc.c:1909  */
