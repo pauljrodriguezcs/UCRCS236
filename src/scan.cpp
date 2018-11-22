@@ -838,7 +838,7 @@ YY_RULE_SETUP
 case 12:
 YY_RULE_SETUP
 #line 44 "src/scan.l"
-{sscanf(yytext, "%d,%d,%d,%d", 
+{sscanf(yytext, "[%d,%d,%d,%d]", 
                                         &yylval.mval.top_left_x, 
                                         &yylval.mval.top_left_y, 
                                         &yylval.mval.bottom_right_x, 

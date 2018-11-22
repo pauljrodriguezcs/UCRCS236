@@ -709,6 +709,9 @@ static void print_op(CompOp op)
       case NO_OP:
          printf(" NO_OP");
          break;
+      case INTERSECTS_OP:     // Milestone 3
+         printf(" INTERSECTS_OP");
+         break;
    }
 }
 

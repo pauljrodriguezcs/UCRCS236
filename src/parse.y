@@ -103,6 +103,7 @@ QL_Manager *pQlm;          // QL component manager
       T_GE
       T_NE
       T_EOF
+      T_INTERSECTS      // Milestone 3
       NOTOKEN
       RW_RESET
       RW_IO
@@ -553,6 +554,10 @@ op
    {
       $$ = NE_OP;
    }
+   | T_INTERSECTS
+   {
+      $$ = INTERSECTS_OP;     // Milestone 3
+   }
    ;
 
 nothing
@@ -697,6 +702,9 @@ ostream &operator<<(ostream &s, const CompOp &op)
          break;
       case NO_OP:
          s << " NO_OP";
+         break;
+      case INTERSECTS_OP:     // Milestone 3
+         s << " INTERSECTS_OP";
          break;
    }
    return s;
