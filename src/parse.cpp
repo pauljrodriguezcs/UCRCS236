@@ -192,20 +192,21 @@ extern int yydebug;
     T_GE = 280,
     T_NE = 281,
     T_EOF = 282,
-    NOTOKEN = 283,
-    RW_RESET = 284,
-    RW_IO = 285,
-    RW_BUFFER = 286,
-    RW_RESIZE = 287,
-    RW_QUERY_PLAN = 288,
-    RW_ON = 289,
-    RW_OFF = 290,
-    T_INT = 291,
-    T_MBR = 292,
-    T_REAL = 293,
-    T_STRING = 294,
-    T_QSTRING = 295,
-    T_SHELL_CMD = 296
+    T_INTERSECTS = 283,
+    NOTOKEN = 284,
+    RW_RESET = 285,
+    RW_IO = 286,
+    RW_BUFFER = 287,
+    RW_RESIZE = 288,
+    RW_QUERY_PLAN = 289,
+    RW_ON = 290,
+    RW_OFF = 291,
+    T_INT = 292,
+    T_MBR = 293,
+    T_REAL = 294,
+    T_STRING = 295,
+    T_QSTRING = 296,
+    T_SHELL_CMD = 297
   };
 #endif
 
@@ -223,7 +224,7 @@ union YYSTYPE
     NODE *n;
     mbr_data mval;
 
-#line 227 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:355  */
+#line 228 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -240,7 +241,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 244 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:358  */
+#line 245 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -482,21 +483,21 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  65
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   109
+#define YYLAST   116
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  48
+#define YYNTOKENS  49
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  38
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  79
+#define YYNRULES  80
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  138
+#define YYNSTATES  139
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   296
+#define YYMAXUTOK   297
 
 #define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -509,8 +510,8 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      43,    44,    46,     2,    45,     2,    47,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    42,
+      44,    45,    47,     2,    46,     2,    48,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    43,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -534,21 +535,22 @@ static const yytype_uint8 yytranslate[] =
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
-      35,    36,    37,    38,    39,    40,    41
+      35,    36,    37,    38,    39,    40,    41,    42
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   165,   165,   170,   180,   186,   195,   196,   197,   198,
-     205,   206,   207,   208,   212,   213,   214,   215,   219,   220,
-     221,   222,   223,   224,   225,   226,   230,   236,   247,   255,
-     260,   268,   279,   292,   299,   306,   313,   320,   328,   335,
-     342,   349,   357,   364,   371,   378,   385,   389,   396,   403,
-     404,   411,   415,   422,   426,   433,   437,   444,   451,   455,
-     462,   466,   473,   480,   484,   491,   495,   502,   506,   510,
-     514,   521,   525,   532,   536,   540,   544,   548,   552,   558
+       0,   166,   166,   171,   181,   187,   196,   197,   198,   199,
+     206,   207,   208,   209,   213,   214,   215,   216,   220,   221,
+     222,   223,   224,   225,   226,   227,   231,   237,   248,   256,
+     261,   269,   280,   293,   300,   307,   314,   321,   329,   336,
+     343,   350,   358,   365,   372,   379,   386,   390,   397,   404,
+     405,   412,   416,   423,   427,   434,   438,   445,   452,   456,
+     463,   467,   474,   481,   485,   492,   496,   503,   507,   511,
+     515,   522,   526,   533,   537,   541,   545,   549,   553,   557,
+     563
 };
 #endif
 
@@ -561,17 +563,17 @@ static const char *const yytname[] =
   "RW_INDEX", "RW_LOAD", "RW_SET", "RW_HELP", "RW_PRINT", "RW_EXIT",
   "RW_SELECT", "RW_FROM", "RW_WHERE", "RW_INSERT", "RW_DELETE",
   "RW_UPDATE", "RW_AND", "RW_INTO", "RW_VALUES", "T_EQ", "T_LT", "T_LE",
-  "T_GT", "T_GE", "T_NE", "T_EOF", "NOTOKEN", "RW_RESET", "RW_IO",
-  "RW_BUFFER", "RW_RESIZE", "RW_QUERY_PLAN", "RW_ON", "RW_OFF", "T_INT",
-  "T_MBR", "T_REAL", "T_STRING", "T_QSTRING", "T_SHELL_CMD", "';'", "'('",
-  "')'", "','", "'*'", "'.'", "$accept", "start", "command", "ddl", "dml",
-  "utility", "queryplans", "buffer", "statistics", "createtable",
-  "createindex", "droptable", "dropindex", "load", "set", "help", "print",
-  "exit", "query", "insert", "delete", "update", "non_mt_attrtype_list",
-  "attrtype", "non_mt_select_clause", "non_mt_relattr_list", "relattr",
-  "non_mt_relation_list", "relation", "opt_where_clause",
-  "non_mt_cond_list", "condition", "relattr_or_value", "non_mt_value_list",
-  "value", "opt_relname", "op", "nothing", YY_NULLPTR
+  "T_GT", "T_GE", "T_NE", "T_EOF", "T_INTERSECTS", "NOTOKEN", "RW_RESET",
+  "RW_IO", "RW_BUFFER", "RW_RESIZE", "RW_QUERY_PLAN", "RW_ON", "RW_OFF",
+  "T_INT", "T_MBR", "T_REAL", "T_STRING", "T_QSTRING", "T_SHELL_CMD",
+  "';'", "'('", "')'", "','", "'*'", "'.'", "$accept", "start", "command",
+  "ddl", "dml", "utility", "queryplans", "buffer", "statistics",
+  "createtable", "createindex", "droptable", "dropindex", "load", "set",
+  "help", "print", "exit", "query", "insert", "delete", "update",
+  "non_mt_attrtype_list", "attrtype", "non_mt_select_clause",
+  "non_mt_relattr_list", "relattr", "non_mt_relation_list", "relation",
+  "opt_where_clause", "non_mt_cond_list", "condition", "relattr_or_value",
+  "non_mt_value_list", "value", "opt_relname", "op", "nothing", YY_NULLPTR
 };
 #endif
 
@@ -584,7 +586,7 @@ static const yytype_uint16 yytoknum[] =
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
      275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
-     295,   296,    59,    40,    41,    44,    42,    46
+     295,   296,   297,    59,    40,    41,    44,    42,    46
 };
 # endif
 
@@ -593,7 +595,7 @@ static const yytype_uint16 yytoknum[] =
 #define yypact_value_is_default(Yystate) \
   (!!((Yystate) == (-106)))
 
-#define YYTABLE_NINF -80
+#define YYTABLE_NINF -81
 
 #define yytable_value_is_error(Yytable_value) \
   0
@@ -602,20 +604,20 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      23,  -106,     3,    17,   -33,   -29,   -14,   -27,  -106,   -32,
-       9,    31,     8,  -106,     6,    14,     7,  -106,    46,    11,
+      24,  -106,    32,    37,   -20,   -16,   -14,   -28,  -106,   -17,
+      33,    40,    15,  -106,    14,    30,    12,  -106,    56,    21,
     -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
     -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
-      12,    15,    24,    32,    19,    48,  -106,  -106,  -106,  -106,
-    -106,  -106,    25,  -106,    60,  -106,    29,    36,    37,    69,
-    -106,  -106,    42,  -106,  -106,  -106,  -106,    38,    39,  -106,
-      40,    44,    45,    41,    47,    49,    59,    73,    49,  -106,
-      50,    51,    52,    53,  -106,  -106,  -106,    73,    54,  -106,
-      55,    49,  -106,  -106,    71,    56,    57,    58,    61,    62,
-    -106,  -106,    47,    30,    -6,  -106,    75,    21,  -106,  -106,
-      50,  -106,  -106,  -106,  -106,  -106,  -106,  -106,    63,    64,
-    -106,  -106,  -106,  -106,  -106,  -106,    21,    49,  -106,    73,
-    -106,  -106,  -106,    30,  -106,  -106,  -106,  -106
+      25,    28,    29,    31,    26,    51,  -106,  -106,  -106,  -106,
+    -106,  -106,    27,  -106,    60,  -106,    34,    36,    38,    66,
+    -106,  -106,    42,  -106,  -106,  -106,  -106,    39,    41,  -106,
+      43,    45,    47,    44,    49,    50,    57,    67,    50,  -106,
+      52,    53,    54,    46,  -106,  -106,  -106,    67,    55,  -106,
+      58,    50,  -106,  -106,    61,    59,    62,    63,    65,    68,
+    -106,  -106,    49,    22,    -7,  -106,    77,   -31,  -106,  -106,
+      52,  -106,  -106,  -106,  -106,  -106,  -106,  -106,    69,    70,
+    -106,  -106,  -106,  -106,  -106,  -106,  -106,   -31,    50,  -106,
+      67,  -106,  -106,  -106,    22,  -106,  -106,  -106,  -106
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -623,20 +625,20 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     4,     0,     0,     0,     0,    79,     0,    41,     0,
+       0,     4,     0,     0,     0,     0,    80,     0,    41,     0,
        0,     0,     0,     5,     0,     0,     0,     3,     0,     0,
        6,     7,     8,    25,    23,    24,    10,    11,    12,    13,
       18,    20,    21,    22,    19,    14,    15,    16,    17,     9,
        0,     0,     0,     0,     0,     0,    71,    39,    72,    31,
       29,    40,    54,    50,     0,    49,    52,     0,     0,     0,
       32,    28,     0,    26,    27,     1,     2,     0,     0,    35,
-       0,     0,     0,     0,     0,     0,     0,    79,     0,    30,
-       0,     0,     0,     0,    38,    53,    57,    79,    56,    51,
+       0,     0,     0,     0,     0,     0,     0,    80,     0,    30,
+       0,     0,     0,     0,    38,    53,    57,    80,    56,    51,
        0,     0,    44,    59,     0,     0,     0,    47,     0,     0,
       37,    42,     0,     0,     0,    58,    61,     0,    48,    33,
        0,    34,    36,    55,    68,    70,    69,    67,     0,    66,
-      77,    73,    74,    75,    76,    78,     0,     0,    63,    79,
-      64,    46,    43,     0,    62,    60,    45,    65
+      77,    73,    74,    75,    76,    78,    79,     0,     0,    63,
+      80,    64,    46,    43,     0,    62,    60,    45,    65
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -644,8 +646,8 @@ static const yytype_int8 yypgoto[] =
 {
     -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
     -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
-    -106,  -106,   -16,  -106,  -106,    27,   -78,    -2,  -106,   -86,
-     -31,  -106,   -22,   -25,  -105,  -106,  -106,     5
+    -106,  -106,   -13,  -106,  -106,    23,   -78,    -6,  -106,   -86,
+     -25,  -106,   -27,   -30,  -105,  -106,  -106,     5
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
@@ -654,7 +656,7 @@ static const yytype_int16 yydefgoto[] =
       -1,    18,    19,    20,    21,    22,    23,    24,    25,    26,
       27,    28,    29,    30,    31,    32,    33,    34,    35,    36,
       37,    38,    96,    97,    54,    55,    56,    87,    88,    92,
-     105,   106,   129,   118,   119,    47,   126,    93
+     105,   106,   130,   118,   119,    47,   127,    93
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -662,32 +664,34 @@ static const yytype_int16 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
-      94,   101,   130,    49,    50,    39,    44,    52,    40,    41,
-      45,    48,    51,   104,    53,   120,   121,   122,   123,   124,
-     125,   130,    42,    43,     1,    46,     2,     3,    57,   128,
-       4,     5,     6,     7,     8,     9,    60,    61,    10,    11,
-      12,    63,    64,   136,    58,    62,    65,    59,   128,   104,
-      13,    67,    14,    66,    68,    15,    16,   114,   115,   116,
-      52,   117,    71,    69,    17,   -79,   114,   115,   116,    72,
-     117,    70,    73,    74,    75,    76,    77,    78,    79,    90,
-      85,    80,    81,    82,    83,    84,    86,    91,    52,    95,
-      98,    99,   107,   127,   131,   108,   135,   100,   103,   102,
-     113,   109,    89,   110,   134,   111,   112,   132,   137,   133
+      94,   101,   131,    49,    50,    39,   114,   115,   116,    52,
+     117,    48,    51,   104,   120,   121,   122,   123,   124,   125,
+      44,   126,   131,    52,    45,     1,    46,     2,     3,   129,
+      53,     4,     5,     6,     7,     8,     9,    40,    41,    10,
+      11,    12,    42,    43,   137,    60,    61,    63,    64,   129,
+     104,    13,    57,    58,    14,    59,    65,    15,    16,   114,
+     115,   116,    62,   117,    66,    67,    17,   -80,    68,    69,
+      71,    70,    72,    74,    78,    73,    76,    90,    77,    79,
+      75,    91,   107,    80,    85,    81,    83,    82,    84,    86,
+      52,   100,    95,    98,    99,   128,   113,   132,    89,   108,
+     135,   102,   103,   136,   138,     0,     0,   109,     0,   110,
+     111,     0,     0,   112,   133,     0,   134
 };
 
-static const yytype_uint8 yycheck[] =
+static const yytype_int16 yycheck[] =
 {
-      78,    87,   107,    30,    31,     0,    39,    39,     5,     6,
-      39,     6,    39,    91,    46,    21,    22,    23,    24,    25,
-      26,   126,     5,     6,     1,    39,     3,     4,    19,   107,
-       7,     8,     9,    10,    11,    12,    30,    31,    15,    16,
-      17,    34,    35,   129,    13,    31,     0,    39,   126,   127,
-      27,    39,    29,    42,    39,    32,    33,    36,    37,    38,
-      39,    40,    43,    39,    41,    42,    36,    37,    38,    21,
-      40,    39,    47,    13,    45,    39,    39,     8,    36,    20,
-      39,    43,    43,    43,    40,    40,    39,    14,    39,    39,
-      39,    39,    21,    18,   110,    39,   127,    44,    43,    45,
-     102,    44,    75,    45,   126,    44,    44,    44,   133,    45
+      78,    87,   107,    31,    32,     0,    37,    38,    39,    40,
+      41,     6,    40,    91,    21,    22,    23,    24,    25,    26,
+      40,    28,   127,    40,    40,     1,    40,     3,     4,   107,
+      47,     7,     8,     9,    10,    11,    12,     5,     6,    15,
+      16,    17,     5,     6,   130,    31,    32,    35,    36,   127,
+     128,    27,    19,    13,    30,    40,     0,    33,    34,    37,
+      38,    39,    32,    41,    43,    40,    42,    43,    40,    40,
+      44,    40,    21,    13,     8,    48,    40,    20,    40,    37,
+      46,    14,    21,    44,    40,    44,    41,    44,    41,    40,
+      40,    45,    40,    40,    40,    18,   102,   110,    75,    40,
+     127,    46,    44,   128,   134,    -1,    -1,    45,    -1,    46,
+      45,    -1,    -1,    45,    45,    -1,    46
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -695,32 +699,33 @@ static const yytype_uint8 yycheck[] =
 static const yytype_uint8 yystos[] =
 {
        0,     1,     3,     4,     7,     8,     9,    10,    11,    12,
-      15,    16,    17,    27,    29,    32,    33,    41,    49,    50,
-      51,    52,    53,    54,    55,    56,    57,    58,    59,    60,
-      61,    62,    63,    64,    65,    66,    67,    68,    69,    85,
-       5,     6,     5,     6,    39,    39,    39,    83,    85,    30,
-      31,    39,    39,    46,    72,    73,    74,    19,    13,    39,
-      30,    31,    31,    34,    35,     0,    42,    39,    39,    39,
-      39,    43,    21,    47,    13,    45,    39,    39,     8,    36,
-      43,    43,    43,    40,    40,    39,    39,    75,    76,    73,
-      20,    14,    77,    85,    74,    39,    70,    71,    39,    39,
-      44,    77,    45,    43,    74,    78,    79,    21,    39,    44,
-      45,    44,    44,    75,    36,    37,    38,    40,    81,    82,
-      21,    22,    23,    24,    25,    26,    84,    18,    74,    80,
-      82,    70,    44,    45,    80,    78,    77,    81
+      15,    16,    17,    27,    30,    33,    34,    42,    50,    51,
+      52,    53,    54,    55,    56,    57,    58,    59,    60,    61,
+      62,    63,    64,    65,    66,    67,    68,    69,    70,    86,
+       5,     6,     5,     6,    40,    40,    40,    84,    86,    31,
+      32,    40,    40,    47,    73,    74,    75,    19,    13,    40,
+      31,    32,    32,    35,    36,     0,    43,    40,    40,    40,
+      40,    44,    21,    48,    13,    46,    40,    40,     8,    37,
+      44,    44,    44,    41,    41,    40,    40,    76,    77,    74,
+      20,    14,    78,    86,    75,    40,    71,    72,    40,    40,
+      45,    78,    46,    44,    75,    79,    80,    21,    40,    45,
+      46,    45,    45,    76,    37,    38,    39,    41,    82,    83,
+      21,    22,    23,    24,    25,    26,    28,    85,    18,    75,
+      81,    83,    71,    45,    46,    81,    79,    78,    82
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    48,    49,    49,    49,    49,    50,    50,    50,    50,
-      51,    51,    51,    51,    52,    52,    52,    52,    53,    53,
-      53,    53,    53,    53,    53,    53,    54,    54,    55,    55,
-      55,    56,    56,    57,    58,    59,    60,    61,    62,    63,
-      64,    65,    66,    67,    68,    69,    70,    70,    71,    72,
-      72,    73,    73,    74,    74,    75,    75,    76,    77,    77,
-      78,    78,    79,    80,    80,    81,    81,    82,    82,    82,
-      82,    83,    83,    84,    84,    84,    84,    84,    84,    85
+       0,    49,    50,    50,    50,    50,    51,    51,    51,    51,
+      52,    52,    52,    52,    53,    53,    53,    53,    54,    54,
+      54,    54,    54,    54,    54,    54,    55,    55,    56,    56,
+      56,    57,    57,    58,    59,    60,    61,    62,    63,    64,
+      65,    66,    67,    68,    69,    70,    71,    71,    72,    73,
+      73,    74,    74,    75,    75,    76,    76,    77,    78,    78,
+      79,    79,    80,    81,    81,    82,    82,    83,    83,    83,
+      83,    84,    84,    85,    85,    85,    85,    85,    85,    85,
+      86
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -733,7 +738,8 @@ static const yytype_uint8 yyr2[] =
        2,     1,     5,     7,     4,     7,     3,     1,     2,     1,
        1,     3,     1,     3,     1,     3,     1,     1,     2,     1,
        3,     1,     3,     1,     1,     3,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     0
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       0
 };
 
 
@@ -1410,16 +1416,16 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 166 "src/parse.y" /* yacc.c:1646  */
+#line 167 "src/parse.y" /* yacc.c:1646  */
     {
       parse_tree = (yyvsp[-1].n);
       YYACCEPT;
    }
-#line 1419 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1425 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 171 "src/parse.y" /* yacc.c:1646  */
+#line 172 "src/parse.y" /* yacc.c:1646  */
     {
       if (!isatty(0)) {
         cout << ((yyvsp[0].sval)) << "\n";
@@ -1429,59 +1435,59 @@ yyreduce:
       parse_tree = NULL;
       YYACCEPT;
    }
-#line 1433 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1439 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 181 "src/parse.y" /* yacc.c:1646  */
+#line 182 "src/parse.y" /* yacc.c:1646  */
     {
       reset_scanner();
       parse_tree = NULL;
       YYACCEPT;
    }
-#line 1443 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1449 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 187 "src/parse.y" /* yacc.c:1646  */
+#line 188 "src/parse.y" /* yacc.c:1646  */
     {
       parse_tree = NULL;
       bExit = 1;
       YYACCEPT;
    }
-#line 1453 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1459 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 199 "src/parse.y" /* yacc.c:1646  */
+#line 200 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
    }
-#line 1461 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1467 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 231 "src/parse.y" /* yacc.c:1646  */
+#line 232 "src/parse.y" /* yacc.c:1646  */
     {
       bQueryPlans = 1;
       cout << "Query plan display turned on.\n";
       (yyval.n) = NULL;
    }
-#line 1471 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1477 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 237 "src/parse.y" /* yacc.c:1646  */
+#line 238 "src/parse.y" /* yacc.c:1646  */
     { 
       bQueryPlans = 0;
       cout << "Query plan display turned off.\n";
       (yyval.n) = NULL;
    }
-#line 1481 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1487 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 248 "src/parse.y" /* yacc.c:1646  */
+#line 249 "src/parse.y" /* yacc.c:1646  */
     {
       if (pPfm->ClearBuffer())
          cout << "Trouble clearing buffer!  Things may be pinned.\n";
@@ -1489,29 +1495,29 @@ yyreduce:
          cout << "Everything kicked out of Buffer!\n";
       (yyval.n) = NULL;
    }
-#line 1493 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1499 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 256 "src/parse.y" /* yacc.c:1646  */
+#line 257 "src/parse.y" /* yacc.c:1646  */
     {
       pPfm->PrintBuffer();
       (yyval.n) = NULL;
    }
-#line 1502 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1508 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 261 "src/parse.y" /* yacc.c:1646  */
+#line 262 "src/parse.y" /* yacc.c:1646  */
     {
       pPfm->ResizeBuffer((yyvsp[0].ival));
       (yyval.n) = NULL;
    }
-#line 1511 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1517 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 269 "src/parse.y" /* yacc.c:1646  */
+#line 270 "src/parse.y" /* yacc.c:1646  */
     {
       #ifdef PF_STATS
          cout << "Statistics\n";
@@ -1522,11 +1528,11 @@ yyreduce:
       #endif
       (yyval.n) = NULL;
    }
-#line 1526 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1532 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 280 "src/parse.y" /* yacc.c:1646  */
+#line 281 "src/parse.y" /* yacc.c:1646  */
     {
       #ifdef PF_STATS
          cout << "Statistics reset.\n";
@@ -1536,372 +1542,380 @@ yyreduce:
       #endif
       (yyval.n) = NULL;
    }
-#line 1540 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1546 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 293 "src/parse.y" /* yacc.c:1646  */
+#line 294 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = create_table_node((yyvsp[-3].sval), (yyvsp[-1].n));
    }
-#line 1548 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1554 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 300 "src/parse.y" /* yacc.c:1646  */
+#line 301 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = create_index_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1556 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1562 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 307 "src/parse.y" /* yacc.c:1646  */
+#line 308 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = drop_table_node((yyvsp[0].sval));
    }
-#line 1564 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1570 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 314 "src/parse.y" /* yacc.c:1646  */
+#line 315 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = drop_index_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1572 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1578 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 321 "src/parse.y" /* yacc.c:1646  */
+#line 322 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = load_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1580 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1586 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 329 "src/parse.y" /* yacc.c:1646  */
+#line 330 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = set_node((yyvsp[-2].sval), (yyvsp[0].sval));
    }
-#line 1588 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1594 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 336 "src/parse.y" /* yacc.c:1646  */
+#line 337 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = help_node((yyvsp[0].sval));
    }
-#line 1596 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1602 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 343 "src/parse.y" /* yacc.c:1646  */
+#line 344 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = print_node((yyvsp[0].sval));
    }
-#line 1604 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1610 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 350 "src/parse.y" /* yacc.c:1646  */
+#line 351 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
       bExit = 1;
    }
-#line 1613 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1619 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 358 "src/parse.y" /* yacc.c:1646  */
+#line 359 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = query_node((yyvsp[-3].n), (yyvsp[-1].n), (yyvsp[0].n));
    }
-#line 1621 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1627 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 365 "src/parse.y" /* yacc.c:1646  */
+#line 366 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = insert_node((yyvsp[-4].sval), (yyvsp[-1].n));
    }
-#line 1629 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1635 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 372 "src/parse.y" /* yacc.c:1646  */
+#line 373 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = delete_node((yyvsp[-1].sval), (yyvsp[0].n));
    }
-#line 1637 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1643 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 379 "src/parse.y" /* yacc.c:1646  */
+#line 380 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = update_node((yyvsp[-5].sval), (yyvsp[-3].n), (yyvsp[-1].n), (yyvsp[0].n));
    }
-#line 1645 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1651 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 386 "src/parse.y" /* yacc.c:1646  */
+#line 387 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1653 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1659 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 390 "src/parse.y" /* yacc.c:1646  */
+#line 391 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1661 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1667 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 397 "src/parse.y" /* yacc.c:1646  */
+#line 398 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = attrtype_node((yyvsp[-1].sval), (yyvsp[0].sval));
    }
-#line 1669 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1675 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 405 "src/parse.y" /* yacc.c:1646  */
+#line 406 "src/parse.y" /* yacc.c:1646  */
     {
        (yyval.n) = list_node(relattr_node(NULL, (char*)"*"));
    }
-#line 1677 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1683 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 412 "src/parse.y" /* yacc.c:1646  */
+#line 413 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1685 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1691 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 416 "src/parse.y" /* yacc.c:1646  */
+#line 417 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1693 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1699 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 423 "src/parse.y" /* yacc.c:1646  */
+#line 424 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_node((yyvsp[-2].sval), (yyvsp[0].sval));
    }
-#line 1701 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1707 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 427 "src/parse.y" /* yacc.c:1646  */
+#line 428 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_node(NULL, (yyvsp[0].sval));
    }
-#line 1709 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1715 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 434 "src/parse.y" /* yacc.c:1646  */
+#line 435 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1717 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1723 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 438 "src/parse.y" /* yacc.c:1646  */
+#line 439 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1725 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1731 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 445 "src/parse.y" /* yacc.c:1646  */
+#line 446 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relation_node((yyvsp[0].sval));
    }
-#line 1733 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1739 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 452 "src/parse.y" /* yacc.c:1646  */
+#line 453 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = (yyvsp[0].n);
    }
-#line 1741 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1747 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 456 "src/parse.y" /* yacc.c:1646  */
+#line 457 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
    }
-#line 1749 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1755 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 463 "src/parse.y" /* yacc.c:1646  */
+#line 464 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1757 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1763 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 467 "src/parse.y" /* yacc.c:1646  */
+#line 468 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1765 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1771 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 474 "src/parse.y" /* yacc.c:1646  */
+#line 475 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = condition_node((yyvsp[-2].n), (yyvsp[-1].cval), (yyvsp[0].n));
    }
-#line 1773 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1779 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 481 "src/parse.y" /* yacc.c:1646  */
+#line 482 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_or_value_node((yyvsp[0].n), NULL);
    }
-#line 1781 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1787 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 485 "src/parse.y" /* yacc.c:1646  */
+#line 486 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_or_value_node(NULL, (yyvsp[0].n));
    }
-#line 1789 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1795 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 492 "src/parse.y" /* yacc.c:1646  */
+#line 493 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1797 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1803 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 496 "src/parse.y" /* yacc.c:1646  */
+#line 497 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1805 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1811 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 503 "src/parse.y" /* yacc.c:1646  */
+#line 504 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(STRING, (void *) (yyvsp[0].sval));
    }
-#line 1813 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1819 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 507 "src/parse.y" /* yacc.c:1646  */
+#line 508 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(INT, (void *)& (yyvsp[0].ival));
    }
-#line 1821 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1827 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 511 "src/parse.y" /* yacc.c:1646  */
+#line 512 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(FLOAT, (void *)& (yyvsp[0].rval));
    }
-#line 1829 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1835 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 515 "src/parse.y" /* yacc.c:1646  */
+#line 516 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(MBR, (void *)& (yyvsp[0].mval));
    }
-#line 1837 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1843 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 522 "src/parse.y" /* yacc.c:1646  */
+#line 523 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.sval) = (yyvsp[0].sval);
    }
-#line 1845 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1851 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 526 "src/parse.y" /* yacc.c:1646  */
+#line 527 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.sval) = NULL;
    }
-#line 1853 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1859 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 533 "src/parse.y" /* yacc.c:1646  */
+#line 534 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = LT_OP;
    }
-#line 1861 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1867 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 537 "src/parse.y" /* yacc.c:1646  */
+#line 538 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = LE_OP;
    }
-#line 1869 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1875 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 541 "src/parse.y" /* yacc.c:1646  */
+#line 542 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = GT_OP;
    }
-#line 1877 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1883 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 545 "src/parse.y" /* yacc.c:1646  */
+#line 546 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = GE_OP;
    }
-#line 1885 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1891 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 549 "src/parse.y" /* yacc.c:1646  */
+#line 550 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = EQ_OP;
    }
-#line 1893 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1899 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 553 "src/parse.y" /* yacc.c:1646  */
+#line 554 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = NE_OP;
    }
-#line 1901 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1907 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+    break;
+
+  case 79:
+#line 558 "src/parse.y" /* yacc.c:1646  */
+    {
+      (yyval.cval) = INTERSECTS_OP;     // Milestone 3
+   }
+#line 1915 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 1905 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
+#line 1919 "/home/paul/redbase-spatial/src/parse.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2129,7 +2143,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 562 "src/parse.y" /* yacc.c:1906  */
+#line 567 "src/parse.y" /* yacc.c:1906  */
 
 
 //
@@ -2268,6 +2282,9 @@ ostream &operator<<(ostream &s, const CompOp &op)
          break;
       case NO_OP:
          s << " NO_OP";
+         break;
+      case INTERSECTS_OP:     // Milestone 3
+         s << " INTERSECTS_OP";
          break;
    }
    return s;

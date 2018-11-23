@@ -882,39 +882,39 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 58 "src/scan.l"
+#line 60 "src/scan.l"
 {BEGIN(shell_cmd);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 59 "src/scan.l"
+#line 61 "src/scan.l"
 {yylval.sval = yytext; return T_SHELL_CMD;}
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 60 "src/scan.l"
+#line 62 "src/scan.l"
 {BEGIN(INITIAL);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 61 "src/scan.l"
+#line 63 "src/scan.l"
 {return yytext[0];}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 case YY_STATE_EOF(shell_cmd):
-#line 62 "src/scan.l"
+#line 64 "src/scan.l"
 {return T_EOF;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 63 "src/scan.l"
+#line 65 "src/scan.l"
 {printf("illegal character [%c]\n", yytext[0]);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 64 "src/scan.l"
+#line 66 "src/scan.l"
 ECHO;
 	YY_BREAK
 #line 921 "/home/paul/redbase-spatial/src/scan.cpp"
@@ -1920,6 +1920,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 64 "src/scan.l"
+#line 66 "src/scan.l"
 
 

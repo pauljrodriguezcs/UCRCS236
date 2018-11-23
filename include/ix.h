@@ -15,9 +15,26 @@
 #include <cstring>
 
 //
+// IX_FileHdr: Header structure for files
+//
+struct IX_FileHeader {
+   int attributeLength;
+   int rootPageNumber;
+   int leafCapacity;
+   int internalCapacity;
+   int overflowCapacity;
+   int headerPageNum;
+   AttrType attrType;
+};
+
+
+
+//
 // IX_IndexHandle: IX Index File interface
 //
 class IX_IndexHandle {
+    friend class IX_Manager;
+    friend class IX_IndexScan;
 public:
     IX_IndexHandle();
     ~IX_IndexHandle();
@@ -30,6 +47,15 @@ public:
 
     // Force index files to disk
     RC ForcePages();
+
+// Milestone 3
+private:
+    bool openedIH;
+    bool headerModified;
+    IX_FileHeader header;
+    PF_FileHandle pfh;
+    RID lastDeleted;
+    
 };
 
 //
@@ -53,6 +79,21 @@ public:
 
     // Close index scan
     RC CloseScan();
+
+// Milestone 3
+private:
+    bool isOpen;
+    bool isFound;
+    bool isOnOverflow;
+    RID lastEmitted;
+    char *queryValue;
+    int leafIndex;
+    int overflowIndex;
+    int currentOverflow;
+    IX_FileHeader ix_header;
+    const IX_IndexHandle *ix_handle;
+    const PF_FileHandle *pf_handle;
+
 };
 
 //
@@ -76,6 +117,10 @@ public:
 
     // Close an Index
     RC CloseIndex(IX_IndexHandle &indexHandle);
+
+// Milestone 3
+private:
+    PF_Manager *pfManager;     
 };
 
 //
