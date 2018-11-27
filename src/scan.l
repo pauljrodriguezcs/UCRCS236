@@ -55,7 +55,7 @@ s_num                [+\-]?{num}
 "="                  {return T_EQ;}
 "!="                 {return T_NE;}
 "<>"                 {return T_NE;}
-
+"INTERSECTS"         {return T_INTERSECTS;}
 
 !                    {BEGIN(shell_cmd);}
 <shell_cmd>[^\n]*    {yylval.sval = yytext; return T_SHELL_CMD;}

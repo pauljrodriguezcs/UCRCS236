@@ -672,7 +672,7 @@ ostream &operator<<(ostream &s, const Value &v)
          s << " (char *)data=" << (char *)v.data;
          break;
       case MBR:                     // Milestone 2
-         s << " *(int *)data=" << *(int *)v.data;
+         s << " *(mbr_data *)data=" << (*(struct mbr_data*)v.data).top_left_x << (*(struct mbr_data *)v.data).top_left_y << (*(struct mbr_data *)v.data).bottom_right_x << (*(struct mbr_data *)v.data).bottom_right_y;
          break;
          
    }
@@ -703,7 +703,7 @@ ostream &operator<<(ostream &s, const CompOp &op)
       case NO_OP:
          s << " NO_OP";
          break;
-      case INTERSECTS_OP:     // Milestone 3
+      case INTERSECTS_OP:     // Milestone 3 
          s << " INTERSECTS_OP";
          break;
    }
